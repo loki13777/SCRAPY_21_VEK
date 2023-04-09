@@ -1,0 +1,2 @@
+#команда запуска паука
+scrapy crawl 21vek -o namefile.csv
