@@ -1,7 +1,7 @@
 # файл для выбора категории пользователем
 import json
 import os
-from project1.spiders.constants import input_text, error_text
+from project1.spiders.constants import INPUT_TEXT, ERROR_TEXT
 
 # открываем json, и возвращаем словарь с категориями
 def get_dict_category(name_file: str = 'catalog_dict.json') -> dict:
@@ -19,14 +19,14 @@ def get_dict_subcategory(dict_category: dict) -> dict:
         print(num, key)
 
     while True:
-        number_category = input(input_text)
+        number_category = input(INPUT_TEXT)
         if number_category.isdigit():
             index_category = int(number_category)
             if index_category >= 0 and index_category < len(keys):
                 name_category = keys[index_category]
                 dict_subcategory = dict_category[name_category]
                 return dict_subcategory
-        print(error_text)
+        print(ERROR_TEXT)
 
 # показываем и нумеруем подкатегории, просим пользователя выбрать номер, возвращаем url подкатегории
 def get_url_subcategory(dict_subcategory: dict) -> str:
@@ -34,14 +34,14 @@ def get_url_subcategory(dict_subcategory: dict) -> str:
     for num, key in enumerate(subcategory_keys):
         print(num, key)
     while True:
-        number_subcategory = input(input_text)
+        number_subcategory = input(INPUT_TEXT)
         if number_subcategory.isdigit():
             index_subcategory = int(number_subcategory)
             if index_subcategory >= 0 and index_subcategory < len(subcategory_keys):
                 name_subcategory = subcategory_keys[index_subcategory]
                 url_subcategory = dict_subcategory[name_subcategory]
                 return url_subcategory
-        print(error_text)
+        print(ERROR_TEXT)
 
 
 dict_category = get_dict_category()
