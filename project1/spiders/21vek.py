@@ -2,6 +2,7 @@ import scrapy
 from project1.spiders.categories import url_subcategory
 from project1.spiders.constants import *
 
+
 class AptekaSpider(scrapy.Spider):
     name = "21vek"
     # начинаем со страницы подкатегории
@@ -13,7 +14,7 @@ class AptekaSpider(scrapy.Spider):
         for url_card in urls_cards:
             yield scrapy.Request(url_card, callback=self.parse_data)
         next_page_url = response.css(CSS_NEXT_PAGE_URL).get()
-        if next_page_url == response.url+'page:2/':
+        if next_page_url == response.url + 'page:2/':
             yield scrapy.Request(next_page_url, callback=self.parse)
 
     # получаем интересующую нас информацию из карточки
