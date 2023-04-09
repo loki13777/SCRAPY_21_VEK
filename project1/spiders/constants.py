@@ -1,4 +1,4 @@
-#
+# константы паука
 css_urls_cards = 'a.mindbox-pr-view.result__link.j-ga_track::attr(href)'
 css_next_page_url = 'a.j-load_page.cr-paging_link::attr(href)'
 css_name = 'div.content__header h1::text'
